@@ -1,0 +1,228 @@
+:root{
+    /* claculator body colors */
+    --clac-color: rgb(236, 237, 238);
+    --clac-shadow:1px 1px 10px rgb(153, 155, 156);
+
+    --clac-color-night: rgba(40, 39, 39, 0.884);
+    --clac-shadow-night:1px 1px 10px rgb(142, 144, 144);
+    
+    /* toggler colors */
+    --toggler-color: rgb(255, 255, 255);
+    --toggler-shadow:inset 0px 0px 2px rgba(0, 0, 0, 0.345) ;
+    
+    --toggler-color-night: rgb(33, 32, 32);
+    --toggler-shadow-night:inset 0px 0px 2px rgba(241, 238, 238, 0.425);
+
+    --toggler-indicator-color: rgb(255, 254, 254);
+    --toggler-indicator-shadow:inset   1px 1px 1px rgba(226, 223, 223, 0.541), 
+                                        1px 1px 1px rgba(159, 156, 156, 0.186);
+
+    --toggler-indicator-color-night: rgb(33, 32, 32);
+    --toggler-indicator-shadow-night:inset   .5px .5px 1px rgba(255, 255, 255, 0.218), 
+                                             1px 1px 1px rgba(241, 239, 239, 0.126);
+    /* display colors  */
+    --diplay-color:transparent;
+    --diplay-shadow:inset 2px 2px 4px rgba(107, 107, 107, 0.115),
+                    inset -2px -2px 5px rgba(232, 235, 238, 0.021) ;
+    
+
+    --inputs-text-color:black;
+    --inputs-text-color-night:white;
+
+    --results-text-color:gray;
+    --results-text-color-night:rgb(179, 178, 178);
+
+
+    /* buttons colors  */
+    --buttons-number-color: rgba(215, 215, 215, 0.971);
+    --buttons-shadow:1px 1px 4px;
+    --arithmetic-buttons-color:rgba(3, 155, 205, 0.245);
+    --equal-color:rgb(3, 155, 205);
+    --clear-color: rgba(255, 177, 9, 0.84);
+
+
+   
+}
+body{
+    position: relative;
+}
+
+.container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform:translate(-50% );
+
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    
+    margin: 0;
+    padding: 0;
+    border-radius: 20px;
+    position: relative;
+    transition: .5s;
+    
+        /* color */
+    background-color: var(--clac-color);
+    box-shadow: var(--clac-shadow) ;  
+}
+
+/* night mode */
+.container-active{  
+    /* color */
+    background-color: var(--clac-color-night);
+    box-shadow:var(--clac-shadow-night)
+}
+
+.container .toggler {
+    position: relative;
+    top: 11px;
+    left: 225px;
+    width: 32px;
+    height: 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    z-index: 1;
+    transition: 0.5s;
+    /* color */
+    background-color: var(--toggler-color);
+    box-shadow: var(--toggler-shadow);
+}
+
+/* night mode */
+.container .toggler-active{
+    
+    /* color */
+    background-color: var(--toggler-color-night);
+    box-shadow: var(--toggler-shadow-night);
+}
+
+.container .toggler .toggler-indicator{
+    position: absolute;
+    width: 7px;
+    height: 7px; 
+    top: calc((12px - 7px)/2);
+    left: 7%;
+    border-radius: 50%; 
+    transition: 0.5s;
+     /* color */
+    background-color:var(--toggler-indicator-color);
+    box-shadow: var(--toggler-indicator-shadow);
+}
+
+/* night mode */
+.container .toggler .toggler-indicator-active{
+    
+    left: 64%;
+    /* color */
+    background-color:var(--toggler-indicator-color-night);
+    box-shadow:var(--toggler-indicator-shadow-night) ;
+
+
+}
+.container .display{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    border-radius: 5px;
+
+
+    /* color */
+    background-color: var(--diplay-color);
+    box-shadow: var(--diplay-shadow) ;                         
+}
+.container .display .disp{
+    background: transparent;
+    border-color: transparent;
+    height: 20px;
+    padding: 5px;
+    outline: none;
+
+    display: flex;
+    justify-content: flex-end;
+
+    align-items: flex-end;
+    overflow-x: scroll;
+     
+    
+}
+.container .display .disp::-webkit-scrollbar{
+    display: block;
+    height: 3px; 
+}
+
+.container .display .inputs{
+    color:var(--inputs-text-color);
+}
+/* night mode */
+.container .display .inputs-active{
+    color:var(--inputs-text-color-night);
+}
+
+.container .display .results{
+    color:var(--results-text-color);
+}
+
+/* night mode */
+.container .display .results-active{
+    color:var(--results-text-color-night);
+}
+
+.container .calc-body{
+    display: grid;
+    grid-template-columns: repeat(4,50px);
+    gap: 10px; 
+    
+    margin-bottom: 10px;
+}
+.container .calc-body button{
+    border: transparent;
+    border-radius: 10px;
+    box-shadow:var(--buttons-shadow) ;
+}
+.container .calc-body button{
+    border: transparent;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px;
+    font-size: 100%;
+    cursor: pointer;
+    transition: .2s;
+   
+    
+}
+
+/* night mode */
+.container .calc-body button:active{
+    transform: scale(.95);
+}
+
+
+#btn-0,#btn-1,#btn-2,#btn-3,#btn-4,#btn-5,#btn-6,#btn-7,#btn-8,#btn-9,#btn-dot{
+    /* color */
+    background-color:var(--buttons-number-color);
+}
+#btn-left,#btn-rigth{
+    /* color */
+    background-color: rgba(255, 177, 9, 0.347);
+}
+
+
+ #btn-DEL,#btn-AC  {
+   background-color:var(--clear-color);
+}
+ 
+#btn-divide,#btn-times,#btn-subtract,#btn-add{
+    background-color:var(--arithmetic-buttons-color);
+}
+#btn-eq{
+    background-color:var(--equal-color);
+}
+
+
+
+
