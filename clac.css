@@ -196,6 +196,12 @@ body{
     
 }
 
+@media(max-width:768px){ 
+    .container .calc-body button{
+        cursor:auto;/*to solve blue click effect in touch screens*/   
+    }
+}
+
 /* night mode */
 .container .calc-body button:active{
     transform: scale(.95);
